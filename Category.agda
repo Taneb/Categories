@@ -18,3 +18,7 @@ record Category o a ℓ : Set (suc (o ⊔ a ⊔ ℓ)) where
     assoc : ∀ {α β γ δ} (f : Mor γ δ) (g : Mor β γ) (h : Mor α β) → f ∘ (g ∘ h) ≈ (f ∘ g) ∘ h
     ∘-cong : ∀ {α β γ} → (_∘_ {α} {β} {γ}) Preserves₂ _≈_ ⟶ _≈_ ⟶ _≈_
 
+  setoid : ∀ {α β} → Setoid a ℓ
+  setoid {α} {β}= record {
+    isEquivalence = isEquivalence {α} {β}
+    }
